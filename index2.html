@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <title>Your Details</title>
+</head>
+
+<body>
+
+    <center>
+        <div class="offset-md-3 col-md-6 offset-md-3 mt-3" style="padding:30px;background: #f2f2f2;border-radius: 20px;  border: 10px solid #f2f2f2;">
+            <img src="" height="200" width="200" id="pupil_img" alt="Image preview..." /></center>
+
+    <center>
+        <table class="table" border=5px style>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Dept</th>
+                    <th scope="col">Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td id="pupil_name"></td>
+                    <td id="pupil_dept"></td>
+                    <td id="pupil_age"></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </center>
+
+    </div>
+    <script>
+        var intern = localStorage.getItem('JSON_DATA');
+        // var img=localStorage.getItem('IMAGE');
+        var json = JSON.parse(intern);
+        var url = localStorage.getItem("img");
+
+        console.log(json, "JSON");
+        console.log(url, "img");
+
+
+        document.getElementById("pupil_name").innerHTML = json.name;
+        document.getElementById("pupil_dept").innerHTML = json.dept;
+        document.getElementById("pupil_age").innerHTML = json.age;
+        document.getElementById("pupil_img").src = url;
+    </script>
+</body>
+
+</html>

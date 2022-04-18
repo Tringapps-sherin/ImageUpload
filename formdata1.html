@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+</head>
+<script>
+    var jsonData;
+
+    function store() {
+        var img;
+        var preview = document.getElementById("img_choose").files[0].name;
+        localStorage.setItem("img", preview)
+        document.getElementById('img_choose').onchange = function(evt) {
+            var tgt = evt.target || window.event.srcElement,
+                files = tgt.files;
+
+           
+            if (FileReader && files && files.length) {
+                var fr = new FileReader();
+                fr.onload = function() {
+                    localStorage.setItem("Image", fr.result)
+
+                }
+                fr.readAsDataURL(files[0]);
+            }
+
+
+
+        }
+        var name1 = document.getElementById("name").value;
+        var age = document.getElementById("age").value;
+        var dept = document.getElementById("dept").value;
+
+
+        jsonData = {
+            name: name1,
+            age: age,
+            dept: dept,
+            img: img
+        }
+        var json = JSON.stringify(jsonData);
+        console.log(json, "JSON");
+        localStorage.setItem("JSON_DATA", json)
+    }
+
+    function handleClick() {
+
+
+
+
+
+    }
+</script>
+
+<body>
+    <div class="offset-md-3 col-md-6 offset-md-3 mt-3" style="padding:30px;background: #f2f2f2;border-radius: 20px;  border: 10px solid #f2f2f2;">
+
+        <div class="form-box">
+            <h3 class="pb-3 text-center">Enter your details here</h3>
+
+            <form>
+                <div class="form-group pb-3">
+                    <label for="name"><b>Name<span class="text-danger">*</span></b></label>
+                    <input class="form-control" id="name" type="text" name="Name" required>
+                </div>
+
+
+                <div class="form-group pb-3">
+                    <label for="salary"><b>Dept<span class="text-danger">*</span></b></label>
+                    <input class="form-control" id="dept" type="text" name="dept" required>
+                </div>
+                <div class="form-group pb-3">
+                    <label for="age"><b>Age<span class="text-danger">*</span></b></label>
+                    <input class="form-control" id="age" type="text" name="age" required>
+                </div>
+                <div class="form-group pb-3">
+                    <label for="image"><b>Image<span class="text-danger">*</span></b></label>
+                    <br>
+                    <input type="file" class="form-control" id="img_choose" />
+
+                </div>
+
+
+
+                <div class="text-center pt-2 pb-3">
+                    <button type="button" href="./index2.html" onclick="store();handleClick();window.location.href='./index2.html'" class="btn btn-lg btn-block btn-success text-white w-100 p-3 text-nowrap">SUBMIT
+                        NOW</button>
+                </div>
+
+        </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
