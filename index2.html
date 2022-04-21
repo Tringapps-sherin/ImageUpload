@@ -1,20 +1,28 @@
-<html>
+<!DOCTYPE html>
 
 <head>
     <title>Your Details</title>
 </head>
-
+<style>
+    .table{
+     display: inline-block;
+     border: 1px solid black;
+     justify-content: center;
+     align-items: center;
+    }
+</style>
 <body>
 
-    <center>
-        <div class="offset-md-3 col-md-6 offset-md-3 mt-3" style="padding:30px;background: #f2f2f2;border-radius: 20px;  border: 10px solid #f2f2f2;">
-            <img src="" height="200" width="200" id="pupil_img" alt="Image preview..." /></center>
 
-    <center>
-        <table class="table" border=5px style>
+        <div class="offset-md-3 col-md-6 offset-md-3 mt-3" style="padding:30px;background-color:#f2f2f2;border-radius: 20px;border:10px solid #f2f2f2;">
+            <img src="" height="200" width="200" id="pupil_img" alt="Image preview..." />
+
+    
+        <table class="table" border="5px">
             <thead>
+                <caption>Display Details</caption>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col"> # </th>
                     <th scope="col">Name</th>
                     <th scope="col">Dept</th>
                     <th scope="col">Age</th>
@@ -30,7 +38,7 @@
 
             </tbody>
         </table>
-    </center>
+    
 
     </div>
     <script>
